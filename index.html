@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,65 +8,88 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap');
-    
+
     * {
       font-family: 'Inter', sans-serif;
     }
-    
+
     .font-serif-elegant {
       font-family: 'Crimson Pro', serif;
     }
-    
+
     html {
       scroll-behavior: smooth;
     }
-    
+
     ::selection {
       background-color: #e0e7ff;
       color: #4f46e5;
     }
-    
+
     /* Color palette variables */
     :root {
-      --color-primary: #4f46e5; /* indigo-600 - violet */
-      --color-text: #000000; /* black */
-      --color-text-light: #6b7280; /* gray-500 */
-      --color-bg: #ffffff; /* white */
-      --color-border: #e5e7eb; /* gray-200 */
+      --color-primary: #4f46e5;
+      /* indigo-600 - violet */
+      --color-text: #000000;
+      /* black */
+      --color-text-light: #6b7280;
+      /* gray-500 */
+      --color-bg: #ffffff;
+      /* white */
+      --color-border: #e5e7eb;
+      /* gray-200 */
     }
   </style>
 </head>
+
 <body class="min-h-screen bg-white text-black font-sans overflow-x-hidden">
-  
+
   <!-- Vertical Line Navigation -->
   <nav id="nav" class="fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-6">
-    <button onclick="scrollToSection('t9-intro')" class="group flex items-center gap-3 outline-none">
-      <span class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">Identity</span>
-      <div class="w-[3px] h-12 bg-slate-400 group-hover:bg-indigo-600 transition-all duration-300"></div>
+    <button onclick="scrollToSection('t9-intro')" data-nav="t9-intro"
+      class="group flex items-center gap-3 outline-none">
+      <span
+        class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">Identity</span>
+      <div class="nav-line w-[3px] h-12 bg-gray-200 group-hover:bg-indigo-600 transition-all duration-300"></div>
     </button>
-    <button onclick="scrollToSection('t9-stack')" class="group flex items-center gap-3 outline-none">
-      <span class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">Stack</span>
-      <div class="w-[3px] h-12 bg-slate-400 group-hover:bg-indigo-600 transition-all duration-300"></div>
+    <button onclick="scrollToSection('t9-expertise')" data-nav="t9-expertise"
+      class="group flex items-center gap-3 outline-none">
+      <span
+        class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">Expertise</span>
+      <div class="nav-line w-[3px] h-12 bg-gray-200 group-hover:bg-indigo-600 transition-all duration-300"></div>
     </button>
-    <button onclick="scrollToSection('t9-history')" class="group flex items-center gap-3 outline-none">
-      <span class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">History</span>
-      <div class="w-[3px] h-12 bg-slate-400 group-hover:bg-indigo-600 transition-all duration-300"></div>
+    <button onclick="scrollToSection('t9-stack')" data-nav="t9-stack"
+      class="group flex items-center gap-3 outline-none">
+      <span
+        class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">Stack</span>
+      <div class="nav-line w-[3px] h-12 bg-gray-200 group-hover:bg-indigo-600 transition-all duration-300"></div>
     </button>
-    <button onclick="scrollToSection('t9-works')" class="group flex items-center gap-3 outline-none">
-      <span class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">Works</span>
-      <div class="w-[3px] h-12 bg-slate-400 group-hover:bg-indigo-600 transition-all duration-300"></div>
+    <button onclick="scrollToSection('t9-history')" data-nav="t9-history"
+      class="group flex items-center gap-3 outline-none">
+      <span
+        class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">History</span>
+      <div class="nav-line w-[3px] h-12 bg-gray-200 group-hover:bg-indigo-600 transition-all duration-300"></div>
     </button>
-    <button onclick="scrollToSection('t9-contact')" class="group flex items-center gap-3 outline-none">
-      <span class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">Connect</span>
-      <div class="w-[3px] h-12 bg-slate-400 group-hover:bg-indigo-600 transition-all duration-300"></div>
+    <button onclick="scrollToSection('t9-works')" data-nav="t9-works"
+      class="group flex items-center gap-3 outline-none">
+      <span
+        class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">Works</span>
+      <div class="nav-line w-[3px] h-12 bg-gray-200 group-hover:bg-indigo-600 transition-all duration-300"></div>
+    </button>
+    <button onclick="scrollToSection('t9-contact')" data-nav="t9-contact"
+      class="group flex items-center gap-3 outline-none">
+      <span
+        class="text-xs font-semibold uppercase tracking-wide text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">Connect</span>
+      <div class="nav-line w-[3px] h-12 bg-gray-200 group-hover:bg-indigo-600 transition-all duration-300"></div>
     </button>
   </nav>
 
   <div class="w-full px-8 md:px-16 lg:px-24 xl:px-32">
     <div class="max-w-7xl mx-auto"></div>
-    
+
     <!-- HERO SECTION -->
-    <section id="t9-intro" class="min-h-[85vh] flex flex-col md:flex-row items-center justify-between py-16 gap-12 md:gap-20">
+    <section id="t9-intro"
+      class="min-h-[85vh] flex flex-col md:flex-row items-center justify-between py-16 gap-12 md:gap-20">
       <div class="flex-1 space-y-6">
         <header>
           <h1 class="text-5xl md:text-6xl text-black mb-1 tracking-tight font-bold">
@@ -78,49 +102,223 @@
 
         <div class="max-w-lg border-l-[1px] border-gray-200 pl-6 py-1">
           <p class="text-lg text-gray-600 leading-relaxed">
-            "Architecting large-scale neural networks and generative AI solutions. Specialized in NLP, computer vision, and high-performance inference at the edge."
+            "Architecting large-scale neural networks and generative AI solutions. Specialized in NLP, computer vision,
+            and high-performance inference at the edge."
           </p>
         </div>
 
-        <div class="flex items-center gap-6 pt-2">
-          <div class="flex gap-6 text-sm font-semibold text-gray-500 uppercase tracking-wide">
-            <a href="https://github.com/alex-ai" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition-colors border-b border-transparent hover:border-indigo-600 pb-0.5">Github</a>
-            <a href="https://linkedin.com/in/alex-thorne-ai" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition-colors border-b border-transparent hover:border-indigo-600 pb-0.5">LinkedIn</a>
-            <a href="https://twitter.com/alex_ai_dev" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition-colors border-b border-transparent hover:border-indigo-600 pb-0.5">Twitter</a>
-          </div>
+        <div class="flex flex-wrap items-center gap-x-12 gap-y-10 pt-6">
+          <a href="https://github.com/vermaashish20" target="_blank" rel="noopener noreferrer"
+            class="group relative inline-block">
+            <span
+              class="relative z-10 text-xs font-black uppercase tracking-[0.2em] text-black transition-transform duration-500 block group-hover:-translate-y-1">Github</span>
+            <div
+              class="absolute bottom-0 left-0 w-full h-[30%] bg-indigo-400 -z-0 transition-all duration-500 group-hover:h-full group-hover:bg-indigo-50">
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/vermaashish20/" target="_blank" rel="noopener noreferrer"
+            class="group relative inline-block">
+            <span
+              class="relative z-10 text-xs font-black uppercase tracking-[0.2em] text-black transition-transform duration-500 block group-hover:-translate-y-1">LinkedIn</span>
+            <div
+              class="absolute bottom-0 left-0 w-full h-[30%] bg-indigo-400 -z-0 transition-all duration-500 group-hover:h-full group-hover:bg-indigo-50">
+            </div>
+          </a>
+
+          <a href="https://twitter.com/AshishSuperVer1" target="_blank" rel="noopener noreferrer"
+            class="group relative inline-block">
+            <span
+              class="relative z-10 text-xs font-black uppercase tracking-[0.2em] text-black transition-transform duration-500 block group-hover:-translate-y-1">Twitter</span>
+            <div
+              class="absolute bottom-0 left-0 w-full h-[30%] bg-indigo-400 -z-0 transition-all duration-500 group-hover:h-full group-hover:bg-indigo-50">
+            </div>
+          </a>
         </div>
       </div>
 
       <div class="relative flex-shrink-0 group">
-        <div class="absolute -top-3 -left-3 w-16 h-16 border border-gray-200 -z-10 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-transform duration-500"></div>
-        <div class="absolute -bottom-3 -right-3 w-20 h-20 bg-indigo-50 -z-10 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-500"></div>
-        
-        <div class="w-100 h-100 md:w-80 md:h-80 bg-white border border-gray-200 p-2 shadow-sm relative z-10 overflow-hidden">
-          <img 
-            src="https://picsum.photos/seed/llme/500/500" 
-            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
-            alt="Alex Thorne"
-          />
+        <div
+          class="absolute -top-3 -left-3 w-16 h-16 border border-gray-200 -z-10 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-transform duration-500">
+        </div>
+        <div
+          class="absolute -bottom-3 -right-3 w-20 h-20 bg-indigo-50 -z-10 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-500">
+        </div>
+
+        <div
+          class="w-100 h-100 md:w-80 md:h-80 bg-white border border-gray-200 p-2 shadow-sm relative z-10 overflow-hidden">
+          <img src="https://picsum.photos/seed/llme/500/500"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            alt="Alex Thorne" />
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE SECTION -->
+    <section id="t9-expertise" class="py-24 border-t border-gray-200">
+      <div class="mb-16">
+        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] block mb-4">Core Competencies</span>
+        <h2 class="text-3xl md:text-4xl text-black font-bold tracking-tight max-w-2xl">From Ideation to Production-Ready
+          AI</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 border-t border-l border-gray-300">
+        <!-- Domain Strategy -->
+        <div class="p-10 border-r border-b border-gray-300 group hover:bg-gray-50/50 transition-colors">
+          <h3 class="text-xl font-bold text-black group-hover:text-indigo-600 transition-colors mb-4">Problem Discovery
+            & Strategy</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6">
+            Translating complex business needs into a technical roadmap. I specialize in domain-driven analysis to
+            select the optimal approach—whether it's classical ML, agentic automation, or LLM-native workflows.
+          </p>
+          <div class="h-1 w-10 bg-gray-200 group-hover:w-16 group-hover:bg-indigo-600 transition-all"></div>
+        </div>
+
+        <!-- Tech Build -->
+        <div class="p-10 border-r border-b border-gray-300 group hover:bg-gray-50/50 transition-colors">
+          <h3 class="text-xl font-bold text-black group-hover:text-indigo-600 transition-colors mb-4">Intelligence
+            Development</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6">
+            Building the core logic. Proficient in engineering LLMs (SFT/DPO), developing Agentic AI for
+            decision-making, and multi-modal GenAI pipelines across image, audio, and video domains.
+          </p>
+          <div class="h-1 w-10 bg-gray-200 group-hover:w-16 group-hover:bg-indigo-600 transition-all"></div>
+        </div>
+
+        <!-- Product Engineering -->
+        <div class="p-10 border-r border-b border-gray-300 group hover:bg-gray-50/50 transition-colors">
+          <h3 class="text-xl font-bold text-black group-hover:text-indigo-600 transition-colors mb-4">Engineering &
+            Optimization</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6">
+            Bridging the gap to AI-native SaaS. Expert in inference optimization via TensorRT/ONNX and architecting
+            resilient microservices that deliver sub-millisecond AI responses at scale.
+          </p>
+          <div class="h-1 w-10 bg-gray-200 group-hover:w-16 group-hover:bg-indigo-600 transition-all"></div>
+        </div>
+
+        <!-- MLOps -->
+        <div class="p-10 border-r border-b border-gray-300 group hover:bg-gray-50/50 transition-colors">
+          <h3 class="text-xl font-bold text-black group-hover:text-indigo-600 transition-colors mb-4">MLOps & Lifecycle
+          </h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6">
+            Ensuring long-term reliability. Full production lifecycle management including real-time drift detection,
+            automated retraining pipelines, and robust system observability.
+          </p>
+          <div class="h-1 w-10 bg-gray-200 group-hover:w-16 group-hover:bg-indigo-600 transition-all"></div>
         </div>
       </div>
     </section>
 
     <!-- STACK SECTION -->
-    <section id="t9-stack" class="border-t border-gray-200 py-20">
-      <div class="mb-12">
-        <h2 class="text-4xl md:text-5xl text-black font-bold">Technical Expertise</h2>
+    <section id="t9-stack" class="py-24 border-t border-gray-200">
+      <div class="mb-16">
+        <h2 class="text-3xl md:text-4xl text-black font-bold tracking-tight">Engineering Suite</h2>
+        <p class="text-gray-500 mt-3 text-base">A clean, high-visibility overview of my technical expertise across the
+          AI lifecycle.</p>
       </div>
-      
-      <div class="flex flex-col md:flex-row gap-12 items-start">
-        <div class="w-full md:w-56 flex-shrink-0">
-          <div id="skill-tabs" class="flex flex-col gap-1 border-l border-gray-200">
-            <!-- Skill tabs will be generated by JavaScript -->
+
+      <div class="grid grid-cols-1 md:grid-cols-3 border-t border-l border-gray-300">
+        <!-- AI/ML Frameworks -->
+        <div class="md:col-span-2 p-10 border-r border-b border-gray-300 group hover:bg-gray-50/50 transition-colors">
+          <h3 class="text-2xl font-bold text-black group-hover:text-indigo-600 transition-colors mb-8">AI/ML Frameworks
+          </h3>
+          <div class="flex flex-wrap gap-x-10 gap-y-6">
+            <div class="group/item">
+              <p class="text-xl font-bold text-black group-hover/item:text-indigo-600 transition-colors">PyTorch</p>
+              <div
+                class="w-full h-0.5 bg-black scale-x-0 group-hover/item:scale-x-100 transition-transform origin-left mt-1 border-b border-indigo-600">
+              </div>
+            </div>
+            <p class="text-xl font-bold text-black/30 group-hover:text-black/60 transition-all">TensorFlow</p>
+            <p class="text-xl font-bold text-black/30 group-hover:text-black/60 transition-all">HuggingFace</p>
+            <p class="text-xl font-bold text-black/30 group-hover:text-black/60 transition-all">NumPy</p>
+            <p class="text-xl font-bold text-black/30 group-hover:text-black/60 transition-all">Pandas</p>
+            <p class="text-xl font-bold text-black/30 group-hover:text-black/60 transition-all">SciKit-Learn</p>
+            <p class="text-xl font-bold text-black/30 group-hover:text-black/60 transition-all">XGBoost</p>
           </div>
         </div>
 
-        <div class="flex-1 w-full pt-0">
-          <div id="skill-items" class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-5">
-            <!-- Skill items will be generated by JavaScript -->
+        <!-- Programming Languages -->
+        <div class="p-10 border-r border-b border-gray-300 group hover:bg-gray-50/50 transition-colors">
+          <h3 class="text-2xl font-bold text-black group-hover:text-indigo-600 transition-colors mb-8">Programming
+            Languages</h3>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between group/line">
+              <span class="text-lg font-bold text-black">Python</span>
+              <div class="w-8 h-[1px] bg-gray-200 group-hover:bg-indigo-500 transition-all"></div>
+            </div>
+            <div class="flex items-center justify-between group/line">
+              <span class="text-lg font-bold text-black">JavaScript</span>
+              <div class="w-8 h-[1px] bg-gray-200 group-hover:bg-indigo-500 transition-all"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agentic AI -->
+        <div class="p-10 border-r border-b border-gray-300 group hover:bg-gray-50/50 transition-colors">
+          <h3 class="text-2xl font-bold text-black group-hover:text-indigo-600 transition-colors mb-8">Agentic AI</h3>
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-indigo-600"></div>
+              <span class="text-base font-bold text-black">n8n</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-gray-200 group-hover:bg-indigo-400"></div>
+              <span class="text-base font-bold text-black/40 group-hover:text-black transition-all">LangGraph</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-gray-200 group-hover:bg-indigo-400"></div>
+              <span class="text-base font-bold text-black/40 group-hover:text-black transition-all">LangChain</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Fullstack Expansion -->
+        <div class="p-10 border-r border-b border-gray-300 group hover:bg-gray-50/50 transition-colors">
+          <h3 class="text-2xl font-bold text-black group-hover:text-indigo-600 transition-colors mb-8">Fullstack
+            Expansion</h3>
+          <div class="grid grid-cols-2 gap-y-6">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-bold mb-1">Frontend</p>
+              <p class="text-sm font-bold text-black">React / Next.js</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-bold mb-1">Backend</p>
+              <p class="text-sm font-bold text-black">FastAPI</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-bold mb-1">Database</p>
+              <p class="text-sm font-bold text-black">MongoDB</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infrastructure -->
+        <div class="p-10 border-r border-b border-gray-300 group hover:bg-gray-50/50 transition-colors">
+          <h3 class="text-2xl font-bold text-black group-hover:text-indigo-600 transition-colors mb-8">Infrastructure
+          </h3>
+          <div class="space-y-4">
+            <p class="text-base font-bold text-black border-l-4 border-indigo-600 pl-4">Azure Cloud</p>
+            <p
+              class="text-base font-bold text-black/40 group-hover:text-black transition-all border-l-4 border-transparent group-hover:border-indigo-200 pl-4">
+              Azure AI Foundry</p>
+            <p
+              class="text-base font-bold text-black/40 group-hover:text-black transition-all border-l-4 border-transparent group-hover:border-indigo-200 pl-4">
+              Docker</p>
+          </div>
+        </div>
+
+        <!-- MLOps & Governance -->
+        <div class="md:col-span-3 p-10 border-r border-b border-gray-300 group hover:bg-gray-50/50 transition-colors">
+          <div class="flex flex-col md:flex-row md:items-center justify-between">
+            <h3 class="text-2xl font-bold text-black group-hover:text-indigo-600 transition-colors mb-6 md:mb-0">MLOps &
+              Governance</h3>
+            <div class="flex flex-wrap gap-x-12 gap-y-4">
+              <span class="text-base font-bold text-black relative">WandB <div
+                  class="absolute -top-1 -right-2 w-1.5 h-1.5 bg-indigo-600 rounded-full animate-pulse"></div></span>
+              <span class="text-base font-bold text-black">MLflow</span>
+              <span class="text-base font-bold text-black">GitHub</span>
+            </div>
           </div>
         </div>
       </div>
@@ -128,42 +326,70 @@
 
     <!-- HISTORY SECTION -->
     <section id="t9-history" class="py-20 border-t border-gray-200">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+      <!-- Section Title -->
+      <div class="mb-16">
+        <h2 class="text-4xl md:text-5xl text-black font-bold">Career Timeline</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+        <!-- Experience Column -->
         <div>
-          <span class="text-sm font-bold text-black uppercase tracking-wide block mb-8">Experience</span>
-          <div class="space-y-10">
-            <div class="group relative pl-6 border-l border-gray-200">
-              <div class="absolute top-0 -left-[1.5px] w-[3px] h-3 bg-gray-300 group-hover:bg-indigo-600 transition-colors"></div>
-              <span class="text-xs font-mono text-gray-500 uppercase mb-1 block">2021 - Present</span>
-              <p class="text-sm font-bold text-black uppercase tracking-wide mb-2">NeuralDynamics AI</p>
-              <h3 class="text-base font-semibold text-black mb-2">Senior ML Engineer</h3>
-              <p class="text-base text-gray-600 leading-relaxed">Leading the development of multi-modal foundation models. Reduced inference latency by 45% using customized TensorRT kernels.</p>
+          <span class="text-xs font-mono font-bold text-gray-400 uppercase tracking-[0.2em] block mb-10">Professional
+            Experience</span>
+          <div class="space-y-12">
+            <div class="group relative pl-8 border-l border-gray-100">
+              <div
+                class="absolute top-0 -left-[1.5px] w-[3px] h-6 bg-gray-200 group-hover:bg-indigo-600 transition-all">
+              </div>
+              <span class="text-[10px] font-mono font-bold text-indigo-600 uppercase tracking-widest mb-2 block">2021 —
+                PRESENT</span>
+              <h3 class="text-xl font-bold text-black mb-1">Senior ML Engineer</h3>
+              <p class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-4">NeuralDynamics AI</p>
+              <p class="text-base text-gray-600 leading-relaxed">Leading the development of multi-modal foundation
+                models. Reduced inference latency by 45% using customized TensorRT kernels.</p>
             </div>
-            <div class="group relative pl-6 border-l border-gray-200">
-              <div class="absolute top-0 -left-[1.5px] w-[3px] h-3 bg-gray-300 group-hover:bg-indigo-600 transition-colors"></div>
-              <span class="text-xs font-mono text-gray-500 uppercase mb-1 block">2020 - 2021</span>
-              <p class="text-sm font-bold text-black uppercase tracking-wide mb-2">Cognitive Systems Lab</p>
-              <h3 class="text-base font-semibold text-black mb-2">AI Researcher</h3>
-              <p class="text-base text-gray-600 leading-relaxed">Published 3 papers on self-supervised learning for robotic manipulation. Developed novel data augmentation strategies for low-resource environments.</p>
+
+            <div class="group relative pl-8 border-l border-gray-100">
+              <div
+                class="absolute top-0 -left-[1.5px] w-[3px] h-6 bg-gray-200 group-hover:bg-indigo-600 transition-all">
+              </div>
+              <span class="text-[10px] font-mono font-bold text-indigo-600 uppercase tracking-widest mb-2 block">2020 —
+                2021</span>
+              <h3 class="text-xl font-bold text-black mb-1">AI Researcher</h3>
+              <p class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-4">Cognitive Systems Lab</p>
+              <p class="text-base text-gray-600 leading-relaxed">Published 3 papers on self-supervised learning for
+                robotic manipulation. Developed novel data augmentation strategies for low-resource environments.</p>
             </div>
           </div>
         </div>
+
+        <!-- Academics Column -->
         <div>
-          <span class="text-sm font-bold text-black uppercase tracking-wide block mb-8">Academics</span>
-          <div class="space-y-10">
-            <div class="group relative pl-6 border-l border-gray-200">
-              <div class="absolute top-0 -left-[1.5px] w-[3px] h-3 bg-gray-300 group-hover:bg-indigo-600 transition-colors"></div>
-              <span class="text-xs font-mono text-gray-500 uppercase mb-1 block">2018 - 2020</span>
-              <h3 class="text-base font-semibold text-black mb-1">M.S. in Computer Science (Artificial Intelligence)</h3>
-              <p class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-2">Stanford University</p>
-              <p class="text-base text-gray-600 leading-relaxed">Research focused on Transformer efficiency and sparse attention mechanisms.</p>
+          <span class="text-xs font-mono font-bold text-gray-400 uppercase tracking-[0.2em] block mb-10">Academic
+            Foundation</span>
+          <div class="space-y-12">
+            <div class="group relative pl-8 border-l border-gray-100">
+              <div
+                class="absolute top-0 -left-[1.5px] w-[3px] h-6 bg-gray-200 group-hover:bg-indigo-600 transition-all">
+              </div>
+              <span class="text-[10px] font-mono font-bold text-indigo-600 uppercase tracking-widest mb-2 block">2018 —
+                2020</span>
+              <h3 class="text-xl font-bold text-black mb-1">M.S. in Artificial Intelligence</h3>
+              <p class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-4">Stanford University</p>
+              <p class="text-base text-gray-600 leading-relaxed">Research focused on Transformer efficiency and sparse
+                attention mechanisms. Thesis on "Sparse Quadratic Attention".</p>
             </div>
-            <div class="group relative pl-6 border-l border-gray-200">
-              <div class="absolute top-0 -left-[1.5px] w-[3px] h-3 bg-gray-300 group-hover:bg-indigo-600 transition-colors"></div>
-              <span class="text-xs font-mono text-gray-500 uppercase mb-1 block">2014 - 2018</span>
-              <h3 class="text-base font-semibold text-black mb-1">B.S. in Mathematics & Computer Science</h3>
-              <p class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-2">MIT</p>
-              <p class="text-base text-gray-600 leading-relaxed">Dual major with a minor in Cognitive Science.</p>
+
+            <div class="group relative pl-8 border-l border-gray-100">
+              <div
+                class="absolute top-0 -left-[1.5px] w-[3px] h-6 bg-gray-200 group-hover:bg-indigo-600 transition-all">
+              </div>
+              <span class="text-[10px] font-mono font-bold text-indigo-600 uppercase tracking-widest mb-2 block">2014 —
+                2018</span>
+              <h3 class="text-xl font-bold text-black mb-1">B.S. in Computer Science</h3>
+              <p class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-4">MIT</p>
+              <p class="text-base text-gray-600 leading-relaxed">Dual major in Mathematics with a minor in Cognitive
+                Science. Focus on algorithms and neural computation.</p>
             </div>
           </div>
         </div>
@@ -171,242 +397,393 @@
     </section>
 
     <!-- WORKS SECTION -->
-    <section id="t9-works" class="py-20 border-t border-gray-200">
-      <div class="flex items-end justify-between mb-16">
-        <div>
-          <h2 class="text-4xl md:text-5xl font-bold text-black">Projects</h2>
-        </div>
+    <section id="t9-works" class="py-24 border-t border-gray-200">
+      <div class="mb-16">
+        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] block mb-4">Selected Works</span>
+        <h2 class="text-3xl md:text-4xl text-black font-bold tracking-tight">Project Portfolio</h2>
       </div>
 
-      <div class="space-y-12">
-        <div class="group flex flex-col md:flex-row gap-6 items-start border-b border-slate-50 pb-12">
-          <div class="flex-shrink-0 pt-0.5">
-            <span class="text-slate-800 text-2xl">01</span>
-          </div>
-          <div class="flex-1 space-y-3">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <h3 class="text-3xl text-slate-800 group-hover:text-indigo-600 transition-colors">
-                Neural Vision Core
-              </h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-[12px] font-bold uppercase tracking-widest text-slate-600 border border-slate-100 px-2 py-0.5">PyTorch</span>
-                <span class="text-[12px] font-bold uppercase tracking-widest text-slate-600 border border-slate-100 px-2 py-0.5">Computer Vision</span>
-                <span class="text-[12px] font-bold uppercase tracking-widest text-slate-600 border border-slate-100 px-2 py-0.5">Edge AI</span>
-                <span class="text-[12px] font-bold uppercase tracking-widest text-slate-600 border border-slate-100 px-2 py-0.5">TensorRT</span>
+      <div class="border-t border-gray-200">
+        <!-- Project 01 -->
+        <div class="border-b border-gray-200 group">
+          <button onclick="toggleProject(1)"
+            class="w-full py-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 hover:bg-gray-50/50 transition-colors text-left">
+            <span
+              class="text-2xl font-mono font-light text-gray-300 group-hover:text-indigo-600 transition-colors w-12">01</span>
+            <div class="flex-1 space-y-2">
+              <div class="flex flex-wrap items-center gap-4">
+                <h3 class="text-xl font-bold text-black uppercase tracking-tight">Neural Vision Core</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="text-[8px] font-bold uppercase tracking-widest text-gray-400 border border-gray-200 px-2 py-0.5">Computer
+                    Vision</span>
+                  <span
+                    class="text-[8px] font-bold uppercase tracking-widest text-gray-400 border border-gray-200 px-2 py-0.5">TensorRT</span>
+                </div>
               </div>
-            </div>
-            
-            <div class="flex items-start gap-4 max-w-3xl">
-              <p class="text-slate-600 text-xl leading-relaxed flex-1">
-                Real-time semantic segmentation for autonomous drone navigation using custom EfficientNet architectures.
+              <p class="text-gray-500 text-sm max-w-2xl">Real-time semantic segmentation for autonomous drone
+                navigation.
               </p>
             </div>
-
-            <div class="flex flex-col gap-2 pt-2 border-l border-slate-50 pl-4">
-              <div class="flex gap-3 items-start">
-                <span class="text-[10px] font-mono text-slate-600 mt-1.5">[1]</span>
-                <p class="text-[18px] text-slate-900 leading-tight">
-                  Implemented real-time inference pipeline on NVIDIA Orin using TensorRT optimization.
-                </p>
-              </div>
-              <div class="flex gap-3 items-start">
-                <span class="text-[10px] font-mono text-slate-600 mt-1.5">[2]</span>
-                <p class="text-[18px] text-slate-900 leading-tight">
-                  Engineered a custom multi-scale feature fusion layer reducing parameters by 22% while maintaining accuracy.
-                </p>
-              </div>
-              <div class="flex gap-3 items-start">
-                <span class="text-[10px] font-mono text-slate-600 mt-1.5">[3]</span>
-                <p class="text-[18px] text-slate-900 leading-tight">
-                  Architected an automated data labeling pipeline using SAM (Segment Anything Model) reducing manual effort by 80%.
-                </p>
-              </div>
-              <div class="flex gap-3 items-start">
-                <span class="text-[10px] font-mono text-slate-600 mt-1.5">[4]</span>
-                <p class="text-[18px] text-slate-900 leading-tight">
-                  Developed custom loss functions to handle extreme class imbalances in aerial datasets.
-                </p>
-              </div>
-              <div class="flex gap-3 items-start">
-                <span class="text-[10px] font-mono text-slate-600 mt-1.5">[5]</span>
-                <p class="text-[18px] text-slate-900 leading-tight">
-                  Achieved 60 FPS on edge hardware with mIoU of 0.84 on the Cityscapes dataset benchmark.
-                </p>
-              </div>
-            </div>
-            <div>
-              <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-slate-900 transition-colors mt-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-            </div>
+            <svg id="arrow-1"
+              class="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-transform duration-300 mr-4"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="project-1" class="hidden px-20 pb-10">
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 mb-6">
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> NVIDIA Orin Pipeline
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> 22% Parameter
+                Reduction
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> SAM-based
+                Auto-Labeling
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> 60 FPS Edge Inference
+              </li>
+            </ul>
+            <a href="https://github.com/alex-ai/neural-vision-core" target="_blank"
+              class="text-[10px] font-black uppercase tracking-widest text-indigo-600 hover:text-black transition-colors flex items-center gap-2">
+              View Repository <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
           </div>
         </div>
 
-        <div class="group flex flex-col md:flex-row gap-6 items-start border-b border-slate-50 pb-12 last:border-0">
-          <div class="flex-shrink-0 pt-0.5">
-            <span class="text-slate-800 text-2xl">02</span>
-          </div>
-          <div class="flex-1 space-y-3">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <h3 class="text-3xl text-slate-800 group-hover:text-indigo-600 transition-colors">
-                Sentience LLM
-              </h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-[12px] font-bold uppercase tracking-widest text-slate-600 border border-slate-100 px-2 py-0.5">LLMs</span>
-                <span class="text-[12px] font-bold uppercase tracking-widest text-slate-600 border border-slate-100 px-2 py-0.5">Transformers</span>
-                <span class="text-[12px] font-bold uppercase tracking-widest text-slate-600 border border-slate-100 px-2 py-0.5">NLP</span>
-                <span class="text-[12px] font-bold uppercase tracking-widest text-slate-600 border border-slate-100 px-2 py-0.5">Fine-tuning</span>
+        <!-- Project 02 -->
+        <div class="border-b border-gray-200 group">
+          <button onclick="toggleProject(2)"
+            class="w-full py-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 hover:bg-gray-50/50 transition-colors text-left">
+            <span
+              class="text-2xl font-mono font-light text-gray-300 group-hover:text-indigo-600 transition-colors w-12">02</span>
+            <div class="flex-1 space-y-2">
+              <div class="flex flex-wrap items-center gap-4">
+                <h3 class="text-xl font-bold text-black uppercase tracking-tight">Sentience LLM</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="text-[8px] font-bold uppercase tracking-widest text-gray-400 border border-gray-200 px-2 py-0.5">LLMs</span>
+                  <span
+                    class="text-[8px] font-bold uppercase tracking-widest text-gray-400 border border-gray-200 px-2 py-0.5">Quantization</span>
+                </div>
               </div>
-            </div>
-            
-            <div class="flex items-start gap-4 max-w-3xl">
-              <p class="text-slate-600 text-xl leading-relaxed flex-1">
-                A 7B parameter foundation model optimized for ethical reasoning and low-latency instruction following.
+              <p class="text-gray-500 text-sm max-w-2xl">A 7B parameter foundation model optimized for ethical
+                reasoning.
               </p>
             </div>
+            <svg id="arrow-2"
+              class="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-transform duration-300 mr-4"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="project-2" class="hidden px-20 pb-10">
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 mb-6">
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> 1.2T Token
+                Pre-training
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> DPO Safety Alignment
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> 2.5x Throughput Gain
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> GGUF Format Support
+              </li>
+            </ul>
+            <a href="https://github.com/alex-ai/sentience-llm" target="_blank"
+              class="text-[10px] font-black uppercase tracking-widest text-indigo-600 hover:text-black transition-colors flex items-center gap-2">
+              View Repository <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-            <div class="flex flex-col gap-2 pt-2 border-l border-slate-50 pl-4">
-              <div class="flex gap-3 items-start">
-                <span class="text-[10px] font-mono text-slate-600 mt-1.5">[1]</span>
-                <p class="text-[18px] text-slate-900 leading-tight">
-                  Pre-trained on a curated 1.2T token dataset focusing on high-quality technical documentation and ethical corpora.
-                </p>
+        <!-- Project 03 -->
+        <div class="border-b border-gray-200 group">
+          <button onclick="toggleProject(3)"
+            class="w-full py-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 hover:bg-gray-50/50 transition-colors text-left">
+            <span
+              class="text-2xl font-mono font-light text-gray-300 group-hover:text-indigo-600 transition-colors w-12">03</span>
+            <div class="flex-1 space-y-2">
+              <div class="flex flex-wrap items-center gap-4">
+                <h3 class="text-xl font-bold text-black uppercase tracking-tight">AudioSense AI</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="text-[8px] font-bold uppercase tracking-widest text-gray-400 border border-gray-200 px-2 py-0.5">Real-time</span>
+                  <span
+                    class="text-[8px] font-bold uppercase tracking-widest text-gray-400 border border-gray-200 px-2 py-0.5">Whisper</span>
+                </div>
               </div>
-              <div class="flex gap-3 items-start">
-                <span class="text-[10px] font-mono text-slate-600 mt-1.5">[2]</span>
-                <p class="text-[18px] text-slate-900 leading-tight">
-                  Fine-tuned using DPO (Direct Preference Optimization) to align model outputs with safety guidelines.
-                </p>
-              </div>
-              <div class="flex gap-3 items-start">
-                <span class="text-[10px] font-mono text-slate-600 mt-1.5">[3]</span>
-                <p class="text-[18px] text-slate-900 leading-tight">
-                  Integrated Flash Attention 2 for 2.5x throughput improvement during long-context generation.
-                </p>
-              </div>
-              <div class="flex gap-3 items-start">
-                <span class="text-[10px] font-mono text-slate-600 mt-1.5">[4]</span>
-                <p class="text-[18px] text-slate-900 leading-tight">
-                  Designed a custom quantization scheme (GGUF-compatible) for 4-bit inference on consumer GPUs.
-                </p>
-              </div>
-              <div class="flex gap-3 items-start">
-                <span class="text-[10px] font-mono text-slate-600 mt-1.5">[5]</span>
-                <p class="text-[18px] text-slate-900 leading-tight">
-                  Built a modular RAG framework allowing seamless integration with enterprise knowledge bases.
-                </p>
-              </div>
+              <p class="text-gray-500 text-sm max-w-2xl">Multi-lingual speech recognition with real-time transcription.
+              </p>
             </div>
-            <div>
-              <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-slate-900 transition-colors mt-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              </a>
+            <svg id="arrow-3"
+              class="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-transform duration-300 mr-4"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="project-3" class="hidden px-20 pb-10">
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 mb-6">
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> Whisper Fine-tuning
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> &lt;200ms Latency</li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> Pyannote Integration
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> WebSocket Streaming
+              </li>
+            </ul>
+            <a href="https://github.com/alex-ai/audiosense" target="_blank"
+              class="text-[10px] font-black uppercase tracking-widest text-indigo-600 hover:text-black transition-colors flex items-center gap-2">
+              View Repository <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 04 -->
+        <div class="border-b border-gray-200 group">
+          <button onclick="toggleProject(4)"
+            class="w-full py-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 hover:bg-gray-50/50 transition-colors text-left">
+            <span
+              class="text-2xl font-mono font-light text-gray-300 group-hover:text-indigo-600 transition-colors w-12">04</span>
+            <div class="flex-1 space-y-2">
+              <div class="flex flex-wrap items-center gap-4">
+                <h3 class="text-xl font-bold text-black uppercase tracking-tight">RecommendX Engine</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="text-[8px] font-bold uppercase tracking-widest text-gray-400 border border-gray-200 px-2 py-0.5">RecSys</span>
+                  <span
+                    class="text-[8px] font-bold uppercase tracking-widest text-gray-400 border border-gray-200 px-2 py-0.5">FAISS</span>
+                </div>
+              </div>
+              <p class="text-gray-500 text-sm max-w-2xl">Hybrid recommendation system using neural embeddings.</p>
             </div>
+            <svg id="arrow-4"
+              class="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-transform duration-300 mr-4"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="project-4" class="hidden px-20 pb-10">
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 mb-6">
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> Two-Tower Neural Net
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> FAISS Vector Search
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> Redis Feature Store
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> 35% CTR Improvement
+              </li>
+            </ul>
+            <a href="https://github.com/alex-ai/recommendx" target="_blank"
+              class="text-[10px] font-black uppercase tracking-widest text-indigo-600 hover:text-black transition-colors flex items-center gap-2">
+              View Repository <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 05 -->
+        <div class="border-b border-gray-200 group">
+          <button onclick="toggleProject(5)"
+            class="w-full py-8 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 hover:bg-gray-50/50 transition-colors text-left">
+            <span
+              class="text-2xl font-mono font-light text-gray-300 group-hover:text-indigo-600 transition-colors w-12">05</span>
+            <div class="flex-1 space-y-2">
+              <div class="flex flex-wrap items-center gap-4">
+                <h3 class="text-xl font-bold text-black uppercase tracking-tight">MedScan Diagnostic</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="text-[8px] font-bold uppercase tracking-widest text-gray-400 border border-gray-200 px-2 py-0.5">Medical
+                    AI</span>
+                  <span
+                    class="text-[8px] font-bold uppercase tracking-widest text-gray-400 border border-gray-200 px-2 py-0.5">DICOM</span>
+                </div>
+              </div>
+              <p class="text-gray-500 text-sm max-w-2xl">Detection of abnormalities in medical imaging with explainable
+                AI.</p>
+            </div>
+            <svg id="arrow-5"
+              class="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-transform duration-300 mr-4"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="project-5" class="hidden px-20 pb-10">
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 mb-6">
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> ResNet/EfficientNet
+                Ensemble</li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> Grad-CAM
+                Explainability
+              </li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> 94.2% Sensitivity</li>
+              <li class="flex gap-3 text-xs text-gray-500"><span class="text-indigo-600">•</span> DICOM/PACS Pipeline
+              </li>
+            </ul>
+            <a href="https://github.com/alex-ai/medscan" target="_blank"
+              class="text-[10px] font-black uppercase tracking-widest text-indigo-600 hover:text-black transition-colors flex items-center gap-2">
+              View Repository <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CONNECT SECTION -->
-    <section id="t9-contact" class="py-24 border-t border-gray-200">
-      <div class="max-w-2xl">
-        <span class="text-xs font-mono font-bold text-gray-400 uppercase tracking-wide block mb-5">Network.Channel</span>
-        <h2 class="text-3xl md:text-4xl tracking-tight text-black mb-6 font-bold">
-          Initiate contact.
-        </h2>
-        <p class="text-base text-gray-600 mb-10 leading-relaxed">
-          Open to foundational research collaborations and architectural audits.
-        </p>
-        
-        <div class="flex flex-col gap-8">
-          <a href="mailto:alex.thorne.ai@example.com" class="group inline-flex flex-col">
-            <span class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-0.5">Direct Entry</span>
-            <span class="text-xl md:text-2xl text-black group-hover:text-indigo-600 transition-colors w-fit border-b border-transparent group-hover:border-indigo-600 pb-1">
-              example@gmail.com
-            </span>
-          </a>
+    <section id="t9-contact" class="py-32 border-t border-gray-200">
+      <div class="flex flex-col lg:flex-row gap-20">
+        <div class="lg:w-1/2">
+          <span class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] block mb-6">Network.Channel</span>
+          <h2 class="text-5xl md:text-6xl text-black font-bold tracking-tighter leading-[0.9] mb-12">
+            Let's build the <br /> future of <span
+              class="text-indigo-600 italic font-serif-elegant">Intelligence</span>.
+          </h2>
+          <p class="text-gray-500 text-lg leading-relaxed max-w-md">
+            Open to collaborate on projects, job opportunities, consultancy or something that you think excites me.
+          </p>
+        </div>
 
-          <div class="flex gap-10 pt-4">
-            <a href="https://github.com/alex-ai" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold uppercase tracking-wide text-gray-500 hover:text-indigo-600 transition-colors">Github</a>
-            <a href="https://linkedin.com/in/alex-thorne-ai" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold uppercase tracking-wide text-gray-500 hover:text-indigo-600 transition-colors">LinkedIn</a>
-            <a href="https://twitter.com/alex_ai_dev" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold uppercase tracking-wide text-gray-500 hover:text-indigo-600 transition-colors">X / Twitter</a>
+        <div class="lg:w-1/2 flex flex-col justify-end space-y-16">
+          <div class="group">
+            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Inquiries</p>
+            <a href="mailto:vermaaashish20@gmail.com"
+              class="text-3xl md:text-4xl font-light text-black hover:text-indigo-600 transition-colors border-b border-gray-100 hover:border-indigo-600 pb-2 flex items-center justify-between group">
+              EMAIL ME
+              <svg
+                class="w-8 h-8 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div class="space-y-4">
+              <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Platform</p>
+              <div class="flex flex-col gap-2">
+                <a href="https://github.com/vermaashish20"
+                  class="text-sm font-bold hover:text-indigo-600 transition-colors">GitHub</a>
+                <a href="https://linkedin.com/in/vermaashish20/"
+                  class="text-sm font-bold hover:text-indigo-600 transition-colors">LinkedIn</a>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Social</p>
+              <div class="flex flex-col gap-2">
+                <a href="https://twitter.com/AshishSuperVer1"
+                  class="text-sm font-bold hover:text-indigo-600 transition-colors">Twitter / X</a>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-16 border-t border-gray-200 flex flex-col md:flex-row justify-between items-end gap-6">
-      <div class="space-y-3">
-       
-        <div class="text-sm text-gray-400">
-          Hand-coded by <span class="text-black font-bold">Ashishkumar Verma</span>
+    <footer class="py-12 border-t border-gray-200 text-center">
+      <div class="max-w-2xl mx-auto space-y-4">
+        <p class="text-lg md:text-xl text-black font-medium italic font-serif-elegant leading-none">
+          "Dreams are meant to be forged and not be chased."
+        </p>
+
+        <div class="flex items-center justify-center gap-6">
+          <div class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em]">
+            Ashishkumar Verma
+          </div>
+
+          <div class="text-lg leading-none" style="animation: pulse-red-indigo 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;">
+            <style>
+              @keyframes pulse-red-indigo {
+                0%, 100% { color: #dc2626; }
+                80% { color: #4f46e5; }
+              }
+            </style>
+            ♥
+          </div>
         </div>
       </div>
-      <div class="text-xs font-bold text-gray-200 uppercase tracking-wide">
-        Identity Rights Reserved
-      </div>
     </footer>
-    </div>
+  </div>
   </div>
 
   <script>
-    // Portfolio Data
-    const skills = [
-      { category: "Frameworks", items: ["PyTorch", "TensorFlow", "JAX", "Keras"] },
-      { category: "Generative AI", items: ["LLMs", "Stable Diffusion", "LangChain", "RAG"] },
-      { category: "Infrastructure", items: ["CUDA", "Docker", "Kubernetes", "AWS SageMaker"] },
-      { category: "MLOps", items: ["MLflow", "Weights & Biases", "Airflow"] }
-    ];
+    // Navigation highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('nav button[data-nav]');
 
-    let activeSkillIndex = 0;
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
 
-    // Smooth scroll function
-    function scrollToSection(id) {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          updateNav(id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    function updateNav(id) {
+      navItems.forEach(item => {
+        const line = item.querySelector('.nav-line');
+        const text = item.querySelector('span');
+
+        if (item.getAttribute('data-nav') === id) {
+          line.classList.remove('bg-gray-200');
+          line.classList.add('bg-indigo-600', 'h-16');
+          text.classList.remove('opacity-0');
+          text.classList.add('opacity-100');
+        } else {
+          line.classList.add('bg-gray-200');
+          line.classList.remove('bg-indigo-600', 'h-16');
+          line.classList.add('h-12');
+          text.classList.add('opacity-0');
+          text.classList.remove('opacity-100');
+        }
+      });
+    }
+
+    function toggleProject(id) {
+      const content = document.getElementById(`project-${id}`);
+      const arrow = document.getElementById(`arrow-${id}`);
+
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        if (arrow) arrow.style.transform = 'rotate(180deg)';
+      } else {
+        content.classList.add('hidden');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
       }
     }
 
-    // Render skill tabs
-    function renderSkillTabs() {
-      const tabsContainer = document.getElementById('skill-tabs');
-      tabsContainer.innerHTML = skills.map((skill, idx) => `
-        <button
-          onclick="setActiveSkill(${idx})"
-          class="text-left px-4 py-3 text-xs font-bold uppercase tracking-wide transition-all relative ${
-            idx === activeSkillIndex 
-            ? 'text-black border-l-2 border-indigo-600 -ml-[1px] bg-indigo-50' 
-            : 'text-gray-400 hover:text-gray-600'
-          }"
-        >
-          ${skill.category}
-        </button>
-      `).join('');
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
     }
-
-    // Render skill items
-    function renderSkillItems() {
-      const itemsContainer = document.getElementById('skill-items');
-      itemsContainer.innerHTML = skills[activeSkillIndex].items.map(item => `
-        <div class="group flex items-center gap-4">
-          <div class="w-1 h-1 bg-gray-300 group-hover:bg-indigo-600 transition-colors"></div>
-          <span class="text-base text-black group-hover:text-indigo-600 transition-colors">${item}</span>
-        </div>
-      `).join('');
-    }
-
-    // Set active skill
-    function setActiveSkill(index) {
-      activeSkillIndex = index;
-      renderSkillTabs();
-      renderSkillItems();
-    }
-
-    // Initialize
-    renderSkillTabs();
-    renderSkillItems();
   </script>
 </body>
+
 </html>
