@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+  * {
+    font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: #e0e7ff;
+    color: #4f46e5;
+  }
+}
+
+@layer components {
+  .font-serif-elegant {
+    font-family: 'Crimson Pro', serif;
+  }
+}
+
+@layer utilities {
+  @keyframes pulse-red-indigo {
+    0%, 100% {
+      color: #dc2626;
+    }
+    80% {
+      color: #4f46e5;
+    }
+  }
+
+  .animate-pulse-red-indigo {
+    animation: pulse-red-indigo 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+:root {
+  --color-primary: #4f46e5;
+  --color-text: #000000;
+  --color-text-light: #6b7280;
+  --color-bg: #ffffff;
+  --color-border: #e5e7eb;
+}
