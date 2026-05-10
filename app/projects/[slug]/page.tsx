@@ -1,29 +1,26 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Contact from "@/components/Contact";
 import { projectsData } from "@/data/portfolio";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
-export default function ProjectDetailPage() {
-  const params = useParams();
-  const slug = params.slug;
+// For static export, we need to generate params for all routes at build time
+export async function generateStaticParams() {
+  return projectsData.map((project) => ({
+    slug: project.slug,
+  }));
+}
 
+export default async function ProjectDetailPage({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}) {
+  const { slug } = await params;
   const project = projectsData.find((p) => p.slug === slug);
 
   if (!project) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <div className="text-center">
-          <h1 className="text-6xl font-black text-black mb-8">404</h1>
-          <p className="text-xl text-black font-bold mb-12">Project Not Found</p>
-          <Link href="/projects" className="bg-black text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-indigo-600 transition-colors">
-            Back to Archive
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   return (

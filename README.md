@@ -2,8 +2,6 @@
 
 A high-performance, minimalist portfolio designed with a focus on "Professional Authority." This project showcases expertise in building production-ready AI/ML systems, spanning from ideation and architecture to robust deployment and monitoring.
 
-![Aesthetic Preview](public/profile.png)
-
 ## 🎨 Design Philosophy: "Minimalist Authority"
 This portfolio adheres to a strict visual system defined by:
 - **High Contrast**: A rigorous Black & White palette with Indigo-600 accents for active states.
