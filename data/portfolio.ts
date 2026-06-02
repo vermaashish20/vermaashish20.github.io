@@ -102,12 +102,12 @@ export const expertiseCategories: ExpertiseCategory[] = [
 ];
 
 export const stackData = {
-  aiMl: ["Scikit Learn", "PyTorch", "TensorFlow", "HuggingFace Transformer", "MlOps", "LangChain", "LangGraph", "RAG"],
-  languages: ["Python", "JavaScript"],
-  infrastructure: ["Docker", "Kubernetes", "Terraform", "Microsoft Azure Cloud", "Databricks", "Kafka", "Redis", "GitHub"],
+  aiMl: ["PyTorch", "TensorFlow", "Scikit-learn", "HuggingFace Transformers", "LangChain", "LangGraph", "RAG", "MLOps", "YOLO", "MCP"],
+  languages: ["Python", "JavaScript", "TypeScript"],
+  infrastructure: ["Docker", "Kubernetes", "Terraform", "Microsoft Azure", "Azure AI Foundry", "MLFlow", "Databricks", "Kafka", "GitHub Actions", "CircleCI"],
   webDev: ["Next.js", "FastAPI", "Node.js"],
   databases: {
-    core: ["PostgreSQL", "MongoDB", "MySQL"],
+    core: ["MongoDB", "PostgreSQL", "MySQL", "Redis"],
     vector: ["Pinecone", "ChromaDB", "Qdrant"]
   }
 };
@@ -119,26 +119,47 @@ export const projectsData: Project[] = [
     num: "01",
     title: "LF2 RL Game Agent",
     tags: ["Reinforcement Learning", "Gymnasium"],
-    desc: "A sophisticated AI agent for Little Fighter 2 that combines real-time computer vision with PPO-based reinforcement learning for autonomous gameplay.",
+    desc: "An AI agent for Little Fighter 2 that combines YOLO-powered game perception with a custom Gymnasium environment and PPO-based reinforcement learning.",
     link: "https://github.com/vermaashish20/AI-lf2",
     featured: true,
     details: [
-      "Designed an AI agent for LF2 using a YOLOv8n model for real-time detection of game state from raw pixel data.",
-      "Implemented a hybrid control system using rule-based logic and a Gymnasium-trained PPO agent for complex combat decisions.",
+      "Collected and labeled gameplay data to train a YOLOv8n detector for real-time character, enemy, and weapon detection.",
+      "Built a rule-based combat agent that uses detected positions for proximity-aware targeting and attacks.",
+      "Created a custom Gymnasium environment using game RAM memory addresses for direct hero and enemy state detection.",
+      "Modeled character movesets and special moves, then trained a PPO agent up to 6000 steps for autonomous enemy combat without vision-action delay.",
     ],
   },
   {
     id: 2,
-    slug: "perceptual-index",
+    slug: "zeno-youtube-rag",
     num: "02",
-    title: "Perceptual Index",
-    tags: ["AI SaaS", "Next.js/LLM"],
-    desc: "A full-stack AI discovery platform that uses autonomous agents to crawl, analyze, and list SaaS products with structured intelligence.",
-    link: "https://perceptual-index.vercel.app",
+    title: "Zeno - YouTube RAG",
+    tags: ["RAG", "FastAPI", "Next.js"],
+    desc: "A full-stack YouTube RAG platform that turns public videos and playlists into searchable, citation-backed learning workspaces.",
+    link: "https://github.com/vermaashish20/zeno",
     featured: true,
     details: [
-      "Built a production-grade SaaS platform using Next.js, FastAPI, and MongoDB to categorize and discover emerging AI tools.",
-      "Engineered a LangGraph-powered crawler that analyzes external URLs and automatically generates structured product listings.",
+      "Built a FastAPI, Next.js, and LangGraph platform that downloads and transcribes public YouTube videos and playlists.",
+      "Used a quantized 16-bit Whisper tiny model with semantic chunking to store playlist-level transcriptions in ChromaDB workspaces.",
+      "Implemented timestamp citations so answers link directly back to source video moments.",
+      "Added persistent chat memory, markdown workspace export, and multi-provider LLM support across Ollama, NVIDIA, and Gemini.",
+    ],
+  },
+  {
+    id: 3,
+    slug: "bookish-ai-authoring",
+    num: "03",
+    title: "Bookish AI Authoring Platform",
+    tags: ["Multi-Agent", "LangGraph", "RAG"],
+    desc: "A full-stack multi-agent book authoring platform for planning, researching, drafting, editing, and fact-checking long-form AI-generated content.",
+    link: "https://github.com/vermaashish20/bookish",
+    featured: true,
+    details: [
+      "Built a Next.js, TypeScript, and FastAPI platform with real-time agent interaction and rich-text editing for long-form content generation.",
+      "Orchestrated Planner, Researcher, World Builder, Writer, Editor, Memory Keeper, and Fact-Checker agents through a LangGraph DAG workflow.",
+      "Integrated Langfuse for observability, RAG tracing, and multi-agent execution monitoring.",
+      "Engineered a memory-driven RAG pipeline with MongoDB episodic memory and ChromaDB vector search for persistent state and factual grounding.",
+      "Designed the workflow to support publication-scale drafts of 25K+ words with contextual continuity across agents.",
     ],
   },
 ];
@@ -149,11 +170,14 @@ export const experienceData: Experience[] = [
     role: "AIML Engineer",
     company: "Alphabin Technology Consulting",
     details: [
-      "Architected an AI microservice for automated test failure analysis using Python, FastAPI, and Azure Container Apps, reducing manual debugging time by 40%.",
-      "Developed an integration microservice in Node.js/TypeScript to handle secure OAuth2 flows for major enterprise platforms like Asana and Slack.",
-      "Led the end-to-end launch of a SaaS listing on Microsoft Marketplace, including technical compliance and SOC 2 governance.",
-      "Built a VS Code extension agent that leverages LLMs to convert natural language test cases into executable, high-precision Playwright scripts.",
-      "Implemented an automated disaster recovery system, ensuring high availability for critical AI-driven infrastructure."
+      "Architected and deployed an AI microservice for automated test failure analysis on Azure Container Apps, using an online learning pipeline to categorize actual bugs, UI changes, flaky tests, and miscellaneous failures with 60-70% accuracy.",
+      "Built an embedding-based error grouping and analytics pipeline that clusters semantically similar test failures and visualizes high-impact errors by time range, branch, and error type.",
+      "Integrated LLM-powered CI/CD summaries that post contextual test run insights and probable failure causes directly to GitHub PRs and commits.",
+      "Architected the TestDino MCP server so AI coding assistants can query test results, analyze failure patterns, manage suites, and create or update manual tests in natural language.",
+      "Designed a VS Code extension AI agent with TypeScript, LangGraph, OpenAI, and Playwright that converts natural language test cases into executable browser automation scripts.",
+      "Built a Node.js and TypeScript integration microservice with OAuth2 connections for Asana, Linear, monday.com, Azure DevOps, and Slack, automating issue creation with logs, screenshots, and attachments.",
+      "Led SOC 2 and ISO 27001 compliance governance and built Azure disaster recovery and failover automation with Terraform and Azure Front Door.",
+      "Designed and developed an internal construction SaaS platform that compiles 500-700+ page DPRs from spreadsheets, drawings, PDFs, and images into an AI-assisted editor with one-click PDF export."
     ]
   }
 ];

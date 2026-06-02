@@ -2,32 +2,34 @@
 
 A high-performance, minimalist portfolio designed with a focus on "Professional Authority." This project showcases expertise in building production-ready AI/ML systems, spanning from ideation and architecture to robust deployment and monitoring.
 
-## 🎨 Design Philosophy: "Minimalist Authority"
+## Design Philosophy: "Minimalist Authority"
 This portfolio adheres to a strict visual system defined by:
 - **High Contrast**: A rigorous Black & White palette with Indigo-600 accents for active states.
 - **Magazine-Style Layout**: Bold headers, hard-offset shadows, and professional typography hierarchies.
 - **Interactive Lifecycle**: A custom, data-dense graph illustrating the end-to-end AI production process.
 
-## 🛠 Tech Stack
-- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+For the full design system, see [`docs/DESIGN.md`](docs/DESIGN.md).
+
+## Tech Stack
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: Lucide React / Custom SVGs
+- **UI**: React 19 with custom components and SVGs
 
-## 📁 Project Structure
+## Project Structure
 - `/app`: Next.js App Router pages (Home, Projects Archive, Case Studies).
 - `/components`: Modular, reusable UI elements (Hero, Navbar, Tech Stack, Career History).
 - `/data`: Centralized source of truth for all professional experience, skills, and projects.
+- `/docs`: Supporting project documentation.
 - `/public`: Static assets (Profile imagery, project thumbnails).
 
-## 🚀 Key Features
-- **Dynamic Project Archive**: A high-density, searchable list of 10+ projects with deep-dive case study pages.
+## Key Features
+- **Dynamic Project Archive**: A focused project archive with deep-dive case study pages.
 - **Interactive AI Graph**: Custom tooltips and visual states explaining the production lifecycle.
 - **Scroll-Spy Navigation**: Intelligent navbar that tracks the user's position across the single-page layout.
 - **Responsive Architecture**: Fully optimized for professional viewing across mobile, tablet, and desktop.
 
-## 🛠 Development
+## Development
 
 First, install dependencies:
 ```bash
@@ -42,4 +44,4 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) to view the result.
 
 ---
-Built with 🖤 by Ashishkumar Verma.
+Built by Ashishkumar Verma.

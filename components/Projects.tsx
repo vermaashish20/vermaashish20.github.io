@@ -16,7 +16,7 @@ export default function Projects({ featuredOnly = false, showViewAll = true }: P
     setOpenProjects((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  let projects = featuredOnly 
+  const projects = featuredOnly 
     ? projectsData.filter(p => p.featured) 
     : projectsData;
 

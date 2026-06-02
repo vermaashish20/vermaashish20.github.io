@@ -12,9 +12,12 @@ export const navItems = [
   { id: "t9-contact", label: "Connect", path: "/" },
 ];
 
+type NavItem = (typeof navItems)[number];
+
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -29,7 +32,6 @@ export default function Navbar() {
 
   useEffect(() => {
     if (pathname !== "/") {
-      setActiveSection("");
       return;
     }
 
@@ -53,15 +55,30 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, [pathname]);
 
-  const handleNavClick = (item: typeof navItems[0]) => {
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  const isNavItemActive = (item: NavItem) => {
+    if (item.path === "/projects") {
+      return pathname.startsWith("/projects");
+    }
+
+    return pathname === item.path && activeSection === item.id;
+  };
+
+  const handleNavClick = (item: NavItem) => {
+    setIsMenuOpen(false);
+
     if (item.path !== pathname) {
-      // If navigating to a different page (like from Home to /projects or vice versa)
-      router.push(item.path);
-      // If going to home, we might want to scroll after navigation, but for now just let it land
+      router.push(item.path === "/" ? `/#${item.id}` : item.path);
       return;
     }
 
-    // If already on the page the link points to
     if (item.id) {
       const element = document.getElementById(item.id);
       if (element) {
@@ -73,38 +90,105 @@ export default function Navbar() {
   };
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-white/80 backdrop-blur-md border-b border-black py-4" 
-          : "bg-transparent border-b border-transparent py-6"
+        isScrolled || isMenuOpen
+          ? "bg-white/90 backdrop-blur-md border-b border-black"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-center items-center">
-        {/* Centered Links */}
-        <div className="flex items-center gap-6 md:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+        <div className="flex min-h-16 items-center justify-between md:justify-center">
+          <Link
+            href="/"
+            className="sm:hidden text-xs font-black uppercase tracking-[0.24em] text-black"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Ashish
+          </Link>
+
+          <button
+            type="button"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((open) => !open)}
+            className="sm:hidden inline-flex h-10 w-10 items-center justify-center border border-black bg-white text-black"
+          >
+            <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
+            <span className="relative block h-3.5 w-5">
+              <span
+                className={`absolute left-0 top-0 h-[2px] w-full bg-current transition-transform ${
+                  isMenuOpen ? "translate-y-[6px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[6px] h-[2px] w-full bg-current transition-opacity ${
+                  isMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-3 h-[2px] w-full bg-current transition-transform ${
+                  isMenuOpen ? "-translate-y-[6px] -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+
+          <div className="hidden sm:flex items-center gap-4 md:gap-8 lg:gap-12">
+            {navItems.map((item) => (
+              <button
+                key={item.label}
+                type="button"
+                onClick={() => handleNavClick(item)}
+                className="group relative py-1 outline-none cursor-pointer"
+              >
+                <span
+                  className={`text-xs lg:text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300 ${
+                    isNavItemActive(item)
+                      ? "text-indigo-600"
+                      : "text-black group-hover:text-indigo-600"
+                  }`}
+                >
+                  {item.label}
+                </span>
+                <div
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-indigo-600 transition-all duration-300 ${
+                    isNavItemActive(item)
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`sm:hidden overflow-hidden border-t border-black bg-white transition-[max-height,opacity] duration-300 ${
+          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="px-4 sm:px-6 py-4">
           {navItems.map((item) => (
             <button
               key={item.label}
+              type="button"
               onClick={() => handleNavClick(item)}
-              className="group relative py-1 outline-none cursor-pointer"
+              className="group flex w-full items-center justify-between border-b border-black/10 py-5 text-left outline-none"
             >
               <span
-                className={`text-[11px] md:text-sm font-medium uppercase tracking-[0.15em] transition-colors duration-300 ${
-                  (pathname === item.path && (item.id === "" || activeSection === item.id))
-                    ? "text-indigo-600" 
+                className={`text-sm font-black uppercase tracking-[0.2em] transition-colors ${
+                  isNavItemActive(item)
+                    ? "text-indigo-600"
                     : "text-black group-hover:text-indigo-600"
                 }`}
               >
                 {item.label}
               </span>
-              <div
-                className={`absolute -bottom-1 left-0 h-[2px] bg-indigo-600 transition-all duration-300 ${
-                  (pathname === item.path && (item.id === "" || activeSection === item.id))
-                    ? "w-full" 
-                    : "w-0 group-hover:w-full"
-                }`}
-              ></div>
+              <span className="text-indigo-600 transition-transform group-hover:translate-x-1">
+                -&gt;
+              </span>
             </button>
           ))}
         </div>

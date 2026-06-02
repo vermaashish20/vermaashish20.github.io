@@ -152,8 +152,8 @@ export default function Hero() {
         <div className="space-y-12 flex flex-col items-center md:items-start">
           <div className="py-2">
             <p className="text-lg md:text-2xl text-black leading-relaxed  italic  text-center md:text-left">
-              "AI/ML Engineer specialized in building production-ready systems,
-              bridging the gap between ideation and high-performance deployment."
+              &quot;AI/ML Engineer specialized in building production-ready systems,
+              bridging the gap between ideation and high-performance deployment.&quot;
             </p>
           </div>
 
@@ -202,7 +202,9 @@ export default function Hero() {
               View Projects
             </button>
             <a
-              href="#"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 bg-indigo-50 border-2 border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-widest text-center transition-all hover:bg-indigo-600 hover:text-white hover:border-indigo-600"
             >
               Download Resume
